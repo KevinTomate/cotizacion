@@ -17,7 +17,8 @@
             android:id="@+id/lblTitulo"
             android:gravity="center"
             android:text="Cotización"
-            android:textSize="20dp"
+            android:textSize="18dp"
+            android:textStyle="bold"
             android:textColor="@color/white" />
 
         <EditText
@@ -56,20 +57,36 @@
             android:layout_height="wrap_content"
             android:id="@+id/txtPlazo"
             android:gravity="center"
-            android:hint="Plazo en meses"
+            android:hint="Plazo (en meses)"
             android:inputType="number" />
 
         <Button
-            android:id="@+id/btnMostrarDatos"
-            android:layout_width="wrap_content"
+            android:id="@+id/btnIntroducirDatos"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="26dp"
-            android:backgroundTint="#64B5F6"
-            android:paddingRight="10dp"
-            android:textAlignment="center"
-            android:layout_gravity="center_horizontal"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            app:backgroundTint="#ef9a9a"
+            android:text="Guardar datos" />
+
+        <Button
+            android:id="@+id/btnMostrarDatos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            app:backgroundTint="#ef9a9a"
             android:text="Realizar el cálculo" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnRegresar"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            app:backgroundTint="#ef9a9a"
+            android:text="Regresar al menú principal"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/lblDatos"
@@ -80,6 +97,16 @@
             android:textStyle="normal"
             android:gravity="center" />
 
+        <Button
+            android:id="@+id/btnCerrar"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            app:backgroundTint="#ef9a9a"
+            android:text="Cerrar"
+
+            />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

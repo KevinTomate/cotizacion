@@ -1,36 +1,28 @@
 package com.example.cotizacion;
-
 import java.util.concurrent.atomic.DoubleAdder;
 
 public class cotizacion {
     //Atributos
-    private int NoCotizacion;
-    private String desAutomovil;
+    private int numeroCotizacion;
+    private String descripcionAutomovil;
     private double precio;
     private double porcentajePagoInicial;
     private int plazo;
-    private double pagoInicial;
-    private double pagoFinal;
-    private double pagoMensual;
 
-
+    //Constructores
     //Constructor vacio
     cotizacion() {
-        this.NoCotizacion = 0;
-        this.desAutomovil = "";
+        this.numeroCotizacion = 0;
+        this.descripcionAutomovil = "";
         this.precio = 0.0;
         this.porcentajePagoInicial = 0.0;
         this.plazo = 0;
     }
 
     //Constructor de parametros
-    cotizacion(int numeroCotizacion,
-               String descripcionAutomovil,
-               double precio,
-               double porcentajePagoInicial,
-               int plazo) {
-        this.NoCotizacion = numeroCotizacion;
-        this.desAutomovil = descripcionAutomovil;
+    cotizacion(int numeroCotizacion, String descripcionAutomovil, double precio, double porcentajePagoInicial, int plazo) {
+        this.numeroCotizacion = numeroCotizacion;
+        this.descripcionAutomovil = descripcionAutomovil;
         this.precio = precio;
         this.porcentajePagoInicial = porcentajePagoInicial;
         this.plazo = plazo;
@@ -38,8 +30,8 @@ public class cotizacion {
 
     //Constructor de copia
     cotizacion(cotizacion costo) {
-        this.NoCotizacion = costo.NoCotizacion;
-        this.desAutomovil = costo.desAutomovil;
+        this.numeroCotizacion = costo.numeroCotizacion;
+        this.descripcionAutomovil = costo.descripcionAutomovil;
         this.precio = costo.precio;
         this.porcentajePagoInicial = costo.porcentajePagoInicial;
         this.plazo = costo.plazo;
@@ -49,28 +41,28 @@ public class cotizacion {
      * @return the numeroCotizacion
      */
     public int getNumeroCotizacion() {
-        return NoCotizacion;
+        return numeroCotizacion;
     }
 
     /**
      * @param numeroCotizacion the numeroCotizacion to set
      */
     public void setNumeroCotizacion(int numeroCotizacion) {
-        this.NoCotizacion = numeroCotizacion;
+        this.numeroCotizacion = numeroCotizacion;
     }
 
     /**
      * @return the descripcionAutomovil
      */
     public String getDescripcionAutomovil() {
-        return desAutomovil;
+        return descripcionAutomovil;
     }
 
     /**
      * @param descripcionAutomovil the descripcionAutomovil to set
      */
     public void setDescripcionAutomovil(String descripcionAutomovil) {
-        this.desAutomovil = descripcionAutomovil;
+        this.descripcionAutomovil = descripcionAutomovil;
     }
 
     /**
@@ -115,20 +107,22 @@ public class cotizacion {
         this.plazo = plazo;
     }
 
-
     //Funciones
-    public Double calcularPagoInicial() {
+    public Double sacarPagoInicial() {
+        double pagoInicial;
         pagoInicial = precio * (porcentajePagoInicial  / 100);
         return pagoInicial;
     }
 
-    public Double calcularTotalFinal() {
-        pagoFinal = precio - pagoInicial;
+    public Double sacarTotalFinal() {
+        double pagoFinal;
+        pagoFinal = precio - sacarPagoInicial();
         return pagoFinal;
     }
 
-    public Double calcularPagoMensual() {
-        pagoMensual = pagoFinal / plazo;
+    public Double sacarPagoMensual() {
+        double pagoMensual;
+        pagoMensual = sacarTotalFinal() / plazo;
         return pagoMensual;
     }
 }
